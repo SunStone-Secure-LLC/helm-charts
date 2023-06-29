@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "marine-k8-integration.name" -}}
+{{- define "my-charts.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "marine-k8-integration.fullname" -}}
+{{- define "my-charts.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "marine-k8-integration.chart" -}}
+{{- define "my-charts.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "marine-k8-integration.labels" -}}
-helm.sh/chart: {{ include "marine-k8-integration.chart" . }}
-{{ include "marine-k8-integration.selectorLabels" . }}
+{{- define "my-charts.labels" -}}
+helm.sh/chart: {{ include "my-charts.chart" . }}
+{{ include "my-charts.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "marine-k8-integration.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "marine-k8-integration.name" . }}
+{{- define "my-charts.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "my-charts.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "marine-k8-integration.serviceAccountName" -}}
+{{- define "my-charts.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "marine-k8-integration.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "my-charts.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
