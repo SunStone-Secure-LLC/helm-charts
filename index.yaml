@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  marine-k8-integration:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-29T00:26:01.96340952Z"
+    description: A Helm chart for Kubernetes
+    digest: a204f41db07be71ce3d0a260562deacc4ba10322fd5a05d8cbfe731309ce6ff8
+    name: marine-k8-integration
+    type: application
+    urls:
+    - https://github.com/SunStone-Secure-LLC/helm-charts.git/marine-k8-integration-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-06-29T00:26:01.962823638Z"
