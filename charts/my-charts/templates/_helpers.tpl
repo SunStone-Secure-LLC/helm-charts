@@ -60,3 +60,45 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Define the my-charts.namespace template if set with forceNamespace or .Release.Namespace is set
+https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/templates/_helpers.tpl
+*/}}
+{{- define "my-charts.namespace" -}}
+{{- if .Values.forceNamespace -}}
+{{ printf "namespace: %s" .Values.forceNamespace }}
+{{- else -}}
+{{ printf "namespace: %s" .Release.Namespace }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Return the appropriate apiVersion for rbac.
+*/}}
+{{- define "rbac.apiVersion" -}}
+{{- if .Capabilities.APIVersions.Has "rbac.authorization.k8s.io/v1" }}
+{{- print "rbac.authorization.k8s.io/v1" -}}
+{{- else -}}
+{{- print "rbac.authorization.k8s.io/v1beta1" -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Return the appropriate apiVersion for cronjob.
+We also add an extra check on the minimum k8s version because not all vendors 
+*/}}
+{{- define "cronjob.apiVersion" -}}
+{{- if and (.Capabilities.APIVersions.Has "batch/v1") (semverCompare ">=1.21.0-0" .Capabilities.KubeVersion.GitVersion) }}
+{{- print "batch/v1" -}}
+{{- else -}}
+{{- print "batch/v1beta1" -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Return the configured base api url
+*/}}
+{{- define "settings.baseApiUrl" -}}
+{{- default "https://api.us.jupiterone.io" .Values.settings.baseApiUrl | quote }}
+{{- end -}}
