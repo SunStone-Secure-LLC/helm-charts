@@ -2,9 +2,9 @@
 apiVersion: {{ template "rbac.apiVersion" . }}
 kind: ClusterRole
 metadata:
-  name: {{ template "graph-kubernetes.fullname" . }}
+  name: {{ template "my-charts.fullname" . }}
   labels:
-    {{- include "graph-kubernetes.labels" . | nindent 4 }}
+    {{- include "my-charts.labels" . | nindent 4 }}
 rules:
   - apiGroups:
     - ''
