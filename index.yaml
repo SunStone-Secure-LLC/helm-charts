@@ -7,7 +7,8 @@ entries:
     description: Converts K8s resources into a graph model for ingestion into JupiterOne.
     digest: a9aa414e28f9efb333dc8212579f4cea22348f8a05b67be112a7aca0f0773601
     name: my-charts
+    type: application
     urls:
-    - https://sunstone-secure-llc.github.io/helm-charts/my-charts-0.1.3.tgz
-    version: 0.1.3
+    - https://sunstone-secure-llc.github.io/helm-charts/my-charts-0.1.4.tgz
+    version: 0.1.4
 generated: "2023-07-07T00:52:47.43494591Z"
