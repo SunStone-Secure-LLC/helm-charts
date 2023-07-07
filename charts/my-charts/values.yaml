@@ -2,7 +2,7 @@
 ########### General ############
 ################################
 image:
-  repository: jupiterone/my-charts
+  repository: helm-charts/my-charts
   pullPolicy: IfNotPresent
   tag: "0.9.1"
 
