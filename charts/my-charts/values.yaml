@@ -2,7 +2,7 @@
 ########### General ############
 ################################
 image:
-  repository: helm-charts/my-charts
+  repository: marinesunstone/my-charts
   pullPolicy: IfNotPresent
   tag: "0.9.2"
 
