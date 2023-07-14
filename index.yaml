@@ -9,6 +9,6 @@ entries:
     name: my-charts
     type: application
     urls:
-    - https://sunstone-secure-llc.github.io/helm-charts
+    - https://sunstone-secure-llc.github.io/helm-charts/my-charts-0.0.7.tgz
     version: 0.0.7
 generated: "2023-07-14T22:42:38.990841352Z"
