@@ -4,6 +4,7 @@
 image:
   repository: marinesunstone/my-charts
   pullPolicy: IfNotPresent
+  tag: "main"
 
 imagePullSecrets: []
 
