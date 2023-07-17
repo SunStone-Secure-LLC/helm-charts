@@ -3,7 +3,8 @@
 ################################
 image:
   repository: marinesunstone/my-charts
-  pullPolicy: always
+  pullPolicy: Always
+  tag: :latest
 
 imagePullSecrets: []
 
