@@ -3,7 +3,7 @@
 ################################
 image:
   repository: marinesunstone/my-charts
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 imagePullSecrets: []
 
