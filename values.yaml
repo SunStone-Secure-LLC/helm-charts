@@ -4,7 +4,6 @@
 image:
   repository: marinesunstone/my-charts
   pullPolicy: Always
-  tag: :latest
 
 imagePullSecrets: []
 
