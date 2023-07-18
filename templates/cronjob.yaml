@@ -130,7 +130,7 @@ spec:
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               command: ['/kubexit/kubexit', 'yarn']
-              args: ['execute']
+              args: ['upload']
               env:
                 - name: KUBEXIT_NAME
                   value: my-charts
