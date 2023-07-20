@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   my-charts:
   - apiVersion: v2
+    appVersion: 0.3.2
+    created: "2023-07-20T00:26:34.211270656Z"
+    description: Converts K8s resources into a graph model for ingestion into JupiterOne.
+    digest: 17cceb2cd74789980c28b327809f4ba0bbee80cfde0e116619a3beb16a96c273
+    name: my-charts
+    type: application
+    urls:
+    - https://github.com/SunStone-Secure-LLC/helm-charts/releases/download/my-charts-0.3.2/my-charts-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
     appVersion: 0.3.1
     created: "2023-07-18T23:04:28.73645298Z"
     description: Converts K8s resources into a graph model for ingestion into JupiterOne.
