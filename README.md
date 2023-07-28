@@ -9,6 +9,7 @@ Once Helm is set up properly, add the repo as follows:
 
 ```console
 helm repo add marinesunstone https://sunstone-secure-llc.github.io/helm-charts/ 
+
 helm repo update
 helm install marinesunstone marinesunstone/my-charts --set secrets.jupiteroneAccountId="some-account-id" --set secrets.jupiteroneApiKey="some-api-key" --set secrets.jupiteroneIntegrationInstanceId="some-integration-instance-id"
 Get Repo Info
