@@ -2,7 +2,6 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: fluent-bit-agent-conf
-  namespace: k8s
   labels:
     app: fluent-bit
     component: fluent-bit-agent-conf
@@ -35,7 +34,6 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: otel-agent-conf
-  namespace: k8s
   labels:
     app: opentelemetry
     component: otel-agent-conf
@@ -151,7 +149,7 @@ spec:
                 - name: ACCESS_TYPE
                   value: {{ ternary "cluster" "namespace" .Values.rbac.useClusterRole }}
                 - name: NAMESPACE
-                  value: {{ .Release.Namespace }}
+                  value: k8s
                 - name: JUPITERONE_ACCOUNT_ID
                   valueFrom:
                     secretKeyRef:
@@ -162,6 +160,21 @@ spec:
                     secretKeyRef:
                       name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
                       key: {{ .Values.existingSecret.jupiteroneApiKeySecretKey | default "jupiteroneApiKey" }}
+                - name: J_1_ACCESS_TOKEN
+                  valueFrom: 
+                    secretKeyRef:
+                      name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
+                      key: {{ .Values.existingSecret.jupiteroneApiKeySecretKey | default "j1accesstoken" }}
+                - name: ACCESS_KEY_ID
+                  valueFrom: 
+                    secretKeyRef:
+                      name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
+                      key: {{ .Values.existingSecret.jupiteroneApiKeySecretKey | default "accesskeyid" }}
+                - name: SECRET_ACCESS_KEY
+                  valueFrom: 
+                    secretKeyRef:
+                      name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
+                      key: {{ .Values.existingSecret.jupiteroneApiKeySecretKey | default "secretaccesskey" }}
                 - name: JUPITERONE_API_BASE_URL
                   value: {{ template "settings.baseApiUrl" . }}
                 - name: INTEGRATION_INSTANCE_ID

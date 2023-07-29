@@ -15,6 +15,9 @@ secrets:
   jupiteroneAccountId:
   jupiteroneApiKey:
   jupiteroneIntegrationInstanceId:
+  j1access_token:
+  accesskeyid:
+  secretaccesskey:
 
 # Use an existing secret for the jupiterone secrets
 existingSecret:
