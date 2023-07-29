@@ -166,17 +166,17 @@ spec:
                   valueFrom: 
                     secretKeyRef:
                       name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
-                      key: {{ .Values.existingSecret.jupiteroneApiKeySecretKey | default "j1accesstoken" }}
+                      key: {{ .Values.existingSecret.j1accesstoken | default "j1accesstoken" }}
                 - name: ACCESS_KEY_ID
                   valueFrom: 
                     secretKeyRef:
                       name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
-                      key: {{ .Values.existingSecret.jupiteroneApiKeySecretKey | default "accesskeyid" }}
+                      key: {{ .Values.existingSecret.accesskeyid | default "accesskeyid" }}
                 - name: SECRET_ACCESS_KEY
                   valueFrom: 
                     secretKeyRef:
                       name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
-                      key: {{ .Values.existingSecret.jupiteroneApiKeySecretKey | default "secretaccesskey" }}
+                      key: {{ .Values.existingSecret.secretaccesskey | default "secretaccesskey" }}
                 - name: JUPITERONE_API_BASE_URL
                   value: {{ template "settings.baseApiUrl" . }}
                 - name: INTEGRATION_INSTANCE_ID

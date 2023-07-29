@@ -26,6 +26,9 @@ existingSecret:
   jupiteroneAccountIdSecretKey: jupiteroneAccountId
   jupiteroneApiKeySecretKey: jupiteroneApiKey
   jupiteroneIntegrationInstanceIdSecretKey: jupiteroneIntegrationInstanceId
+  j1accesstoken: j1accesstoken
+  accesskeyid: accesskeyid
+  secretaccesskey: secretaccesskey
 
 settings:
   baseApiUrl: https://api.us.jupiterone.io
