@@ -15,7 +15,7 @@ secrets:
   jupiteroneAccountId:
   jupiteroneApiKey:
   jupiteroneIntegrationInstanceId:
-  j1access_token:
+  j1accesstoken:
   accesskeyid:
   secretaccesskey:
 
