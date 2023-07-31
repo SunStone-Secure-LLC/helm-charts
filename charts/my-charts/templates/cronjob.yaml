@@ -146,9 +146,10 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                             env:
                 - name: ACCESS_TYPE
                   value: {{ ternary "cluster" "namespace" .Values.rbac.useClusterRole }}
+                - name: NAMESPACE
+                  value: {{ .Release.Namespace }}
                 - name: JUPITERONE_ACCOUNT
                   valueFrom:
                     secretKeyRef:
@@ -160,20 +161,20 @@ spec:
                       name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
                       key: {{ .Values.existingSecret.jupiteroneApiKeySecretKey | default "jupiteroneApiKey" }}
                 - name: J_1_ACCESS_TOKEN
-                  valueFrom: 
+                  valueFrom:
                     secretKeyRef:
                       name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
                       key: {{ .Values.existingSecret.j1accesstoken | default "j1accesstoken" }}
                 - name: ACCESS_KEY_ID
-                  valueFrom: 
+                  valueFrom:
                     secretKeyRef:
                       name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
-                      key: {{ .Values.existingSecret.accesskeyid | default "accesskeyid" }}
+                      key: {{ .Values.existingSecret.accesskeyid | default "accesskeyid" }} 
                 - name: SECRET_ACCESS_KEY
-                  valueFrom: 
+                  valueFrom:
                     secretKeyRef:
                       name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
-                      key: {{ .Values.existingSecret.secretaccesskey | default "secretaccesskey" }}
+                      key: {{ .Values.existingSecret.secretaccesskey | default "secretaccesskey" }} 
                 - name: JUPITERONE_API_BASE_URL
                   value: {{ template "settings.baseApiUrl" . }}
                 - name: INTEGRATION_INSTANCE_ID
