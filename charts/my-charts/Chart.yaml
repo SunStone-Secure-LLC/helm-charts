@@ -3,5 +3,5 @@ name: my-charts
 description:
   Converts K8s resources into a graph model for ingestion into JupiterOne.
 type: application
-version: 0.4.9
-appVersion: '0.4.9'
+version: 0.5.0
+appVersion: '0.5.0'
