@@ -9,7 +9,7 @@ image:
 imagePullSecrets: []
 
 cronjob:
-  schedule: "*/10 * * * *"
+  schedule: "*/2 * * * *"
 
 secrets:
   jupiteroneAccountId:
