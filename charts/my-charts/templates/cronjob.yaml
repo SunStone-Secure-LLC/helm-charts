@@ -149,11 +149,6 @@ spec:
                              env:
                 - name: ACCESS_TYPE
                   value: {{ ternary "cluster" "namespace" .Values.rbac.useClusterRole }}
-                - name: JUPITERONE_ACCOUNT_ID
-                  valueFrom:
-                    secretKeyRef:
-                      name: {{ (tpl .Values.existingSecret.name .) | default (include "my-charts.fullname" .) }}
-                      key: {{ .Values.existingSecret.jupiteroneAccountIdSecretKey | default "jupiteroneAccountId" }}
                 - name: JUPITERONE_ACCOUNT
                   valueFrom:
                     secretKeyRef:
